@@ -1,6 +1,9 @@
 package edu.indiana.cs.b649.hadoop;
 
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.StringTokenizer;
 
 import org.apache.hadoop.conf.Configuration;
@@ -48,6 +51,7 @@ public class WordCount {
     }
 
     public static void main(String[] args) throws Exception {
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss");
         Configuration conf = new Configuration();
         Job job = Job.getInstance(conf, "word count");
         job.setJarByClass(WordCount.class);
@@ -56,8 +60,8 @@ public class WordCount {
         job.setReducerClass(IntSumReducer.class);
         job.setOutputKeyClass(Text.class);
         job.setOutputValueClass(IntWritable.class);
-        FileInputFormat.addInputPath(job, new Path(args[0]));
-        FileOutputFormat.setOutputPath(job, new Path(args[1]));
+        FileInputFormat.addInputPath(job, new Path("src/main/resources/wc/words.txt"));
+        FileOutputFormat.setOutputPath(job, new Path("src/main/resources/wc/output/" + dateFormat.format(new Date())));
         System.exit(job.waitForCompletion(true) ? 0 : 1);
     }
 }
