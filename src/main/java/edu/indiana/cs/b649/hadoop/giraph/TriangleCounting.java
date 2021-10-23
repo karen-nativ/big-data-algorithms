@@ -45,7 +45,6 @@ public class TriangleCounting extends BasicComputation<
                     if (LOG.isDebugEnabled()) {
                         LOG.debug("Vertex " + vertex.getId() + " sent message " + vertex.getId() + " to vertex " + edge.getTargetVertexId());
                     }
-                    System.out.println("Vertex " + vertex.getId() + " sent message " + vertex.getId() + " to vertex " + edge.getTargetVertexId());
                 }
             }
         }
@@ -59,7 +58,6 @@ public class TriangleCounting extends BasicComputation<
                         if (LOG.isDebugEnabled()) {
                             LOG.debug("Vertex " + vertex.getId() + " sent message " + message + " to vertex " + edge.getTargetVertexId());
                         }
-                        System.out.println("Vertex " + vertex.getId() + " sent message" + message + " to vertex " + edge.getTargetVertexId());
                     }
                 }
             }
@@ -76,7 +74,6 @@ public class TriangleCounting extends BasicComputation<
            for (IntWritable message: messages) {
                if (vertex.getId().equals(message)) {
                    Value += 1.0;
-                   System.out.println("Vertex " + vertex.getId() + " received message " + message);
                }
            }
            vertex.setValue(new DoubleWritable(Value));
@@ -93,9 +90,9 @@ public class TriangleCounting extends BasicComputation<
         runner.setConf(conf);
         System.exit(ToolRunner.run(runner, new String[]{
                 TriangleCounting.class.getName(),
-                "-vip", "src/main/resources/giraph/tiny_graph.txt",
+                "-vip", "src/main/resources/giraph/triangle_input.txt",
                 "-vif", "edu.indiana.cs.b649.hadoop.giraph.JsonIntDoubleFloatIntVertexInputFormat",
-                "-vof", "org.apache.giraph.io.formats.IdWithValueTextOutputFormat",
+                "-vof", "edu.indiana.cs.b649.hadoop.giraph.VertexWithNonZeroValueOutputFormat",
                 "-op", "src/main/resources/giraph/triangle_output/"+dateFormat.format(new Date()),
                 "-w", "1",
                 "-ca", "mapred.job.tracker=local",
