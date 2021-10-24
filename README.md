@@ -27,10 +27,19 @@ File Hierarchy
 The repository contains implementations for two big-data problems in each framework.
 Each framework is contained in a directory.
 The structure of each such directory is:
-|-<Framework>
-      |- input
-          |- <input test cases>
-          |- ...
-      |- src
-          |- <java files>
-          |- ...
+
+
+      |-\<Framework\>
+
+            |- input
+
+                |- <input test cases>
+
+                |- ...
+
+            |- src
+
+                |- <java files>
+
+                |- ...
+
