@@ -1,5 +1,7 @@
-# Implementions of solutions for two big-data problems in each Hadoop and Giraph; Graph triangle counting, and F1 frequency moments.
-Part of an essay in which we compare the MapReduce and Pregel algorithms.
+# Implementions in Hadoop and Giraph
+Implementations of solutions for two big-data problems; Graph triangle counting, and F1 frequency moments.
+
+This is part of an essay in which we compare the MapReduce and Pregel algorithms.
 
 ----------------------
 Prerequisites
