@@ -1,7 +1,12 @@
-# Implementions in Hadoop and Giraph
-Implementations of solutions for two big-data problems; Graph triangle counting, and F1 frequency moments.
+# Objective
 
-This is part of an essay in which we compare the MapReduce and Pregel algorithms.
+This is part of an essay in which we compare the MapReduce and Pregel algorithms. <br />
+[The full essay](Foundation_of_Algorithms_for_Massive_Data_Sets_Project.pdf) is also included in this github page in pdf format.
+
+The github page includes implementions in Hadoop and Giraph that solve two probems in the domain of 'big-data'; <br />
+Graph triangle counting, and F1 frequency moments.
+
+
 
 ----------------------
 Prerequisites
